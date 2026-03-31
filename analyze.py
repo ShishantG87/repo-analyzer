@@ -9,8 +9,10 @@ def main():
     path = sys.argv[1]
 
     files = scan_directory(path)
+    total_lines = sum(f["lines"] for f in files)
 
     print(f"Total files: {len(files)}")
+    print(f"Total lines: {total_lines}")
 
 if __name__ == "__main__":
     main()

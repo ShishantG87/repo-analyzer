@@ -12,6 +12,16 @@ def scan_directory(path):
                 continue
 
             full_path = os.path.join(root, name)
-            files.append(full_path)
+
+            try:
+                with open(full_path, 'r', encoding='utf-8', errors='ignore') as f:
+                    line_count = sum(1 for _ in f)
+            except:
+                line_count = 0
+
+            files.append({
+                "path": full_path,
+                "lines": line_count
+            })
 
     return files
