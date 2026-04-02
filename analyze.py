@@ -1,4 +1,6 @@
 import sys
+import os
+from collections import defaultdict
 from scanner import scan_directory
 
 def main():
@@ -13,6 +15,11 @@ def main():
 
     print(f"Total files: {len(files)}")
     print(f"Total lines: {total_lines}")
+
+    print("\nExtensions:")
+    for f in files:
+        ext = os.path.splitext(f["path"])[1]
+        print(ext)
 
 if __name__ == "__main__":
     main()
