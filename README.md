@@ -6,6 +6,7 @@ A Python CLI tool that analyzes a codebase and reports:
 - total lines of code
 - language breakdown
 - largest files
+- Just a change
 
 ## Usage
 
