@@ -16,10 +16,19 @@ def main():
     print(f"Total files: {len(files)}")
     print(f"Total lines: {total_lines}")
 
-    print("\nExtensions:")
+    languages = defaultdict(int)
+
     for f in files:
-        ext = os.path.splitext(f["path"])[1]
-        print(ext)
+        ext = os.path.splitext(f["path"])[1].lower()
+
+        if ext:
+            languages[ext] += 1
+        else:
+            languages["no_ext"] += 1
+
+    print("\nLanguages:")
+    for lang, count in languages.items():
+        print(f"  {lang}: {count}")
 
 if __name__ == "__main__":
     main()
