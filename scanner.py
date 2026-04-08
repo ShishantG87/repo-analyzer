@@ -8,7 +8,7 @@ def scan_directory(path):
         dirs[:] = [d for d in dirs if not d.startswith('.')]
 
         for name in filenames:
-            if name.startswith('.'):
+            if name.startswith('.') or name.endswith('.pyc'):
                 continue
 
             full_path = os.path.join(root, name)
