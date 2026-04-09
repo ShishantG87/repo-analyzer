@@ -30,11 +30,12 @@ def main():
     for lang, count in languages.items():
         print(f"  {lang}: {count}")
 
-    # NEW: largest files
-    largest_files = sorted(files, key=lambda x: x["lines"], reverse=True)[:5]
+    # SMALL STEP: just sort first
+    largest_files = sorted(files, key=lambda x: x["lines"], reverse=True)
 
-    print("\nLargest files:")
-    for f in largest_files:
+    print("\nLargest file:")
+    if largest_files:
+        f = largest_files[0]
         print(f"  {f['path']} ({f['lines']} lines)")
 
 if __name__ == "__main__":
