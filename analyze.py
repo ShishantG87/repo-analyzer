@@ -27,10 +27,12 @@ def main():
             languages["no_ext"] += 1
 
     print("\nLanguages:")
-    for lang, count in languages.items():
-        print(f"  {lang}: {count}")
+    total_files = len(files)
 
-    # top 5 largest files
+    for lang, count in languages.items():
+        percent = (count / total_files) * 100
+        print(f"  {lang}: {count} ({percent:.1f}%)")
+
     largest_files = sorted(files, key=lambda x: x["lines"], reverse=True)[:5]
 
     print("\nLargest files:")
